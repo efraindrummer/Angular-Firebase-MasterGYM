@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mastergymef": {
+      "hosting": {
+        "mastergym": [
+          "mastergymef"
+        ]
+      }
+    }
+  }
+}

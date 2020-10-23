@@ -1,0 +1,56 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-6">
+            <app-seleccionar-cliente [nombre]="clienteSeleccionado.nombre" (seleccionoCliente)="asignarCliente($event)" (canceloCliente)="eliminarCliente()">
+            </app-seleccionar-cliente>
+
+            <div>
+                <label for="">Precio</label>
+                <select [(ngModel)]="idPrecio" (change)="seleccionarPrecio($event.target.value)" class="form-control" name="" id="">
+                    <option [value]="null">Seleccione un precio</option>
+                    <option *ngFor="let precio of precios" [value]="precio.id">{{precio.nombre}}</option>
+                </select>
+            </div>
+
+            <br>
+            <br>
+
+            <div>
+                <label for="">Fecha inicio</label>
+                <input type="text" [value]="inscripcion.fecha | date" disabled class="form-control">
+            </div>
+
+            <div>
+                <label for="">Fecha Finaliza</label>
+                <input type="text" [value]="inscripcion.fechaFinal | date" disabled class="form-control">
+            </div>
+
+            <div>
+                <label for="">Sub Total</label>
+                <input type="number" [value]="inscripcion.subTotal" disabled class="form-control">
+            </div>
+
+            <div>
+                <label for="">Impuesto sobre Venta</label>
+                <input type="number" [value]="inscripcion.isv" disabled class="form-control">
+            </div>
+
+            <div>
+                <label for="">Total</label>
+                <input type="number" [value]="inscripcion.total" disabled class="form-control">
+            </div>
+
+            <br>
+
+            <button class="btn btn-primary" (click)="guardar()">Guardar</button>
+        </div>
+
+        <br>
+
+        <div class="col-sm-6">
+            <div *ngIf="clienteSeleccionado.imgUrl" class="imgCliente">
+                <img [src]="clienteSeleccionado.imgUrl" alt="">
+            </div>
+        </div>
+    </div>
+</div>
