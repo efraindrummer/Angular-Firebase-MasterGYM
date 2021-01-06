@@ -22,6 +22,7 @@ import { PreciosComponent } from './precios/precios.component';
 import { InscripcionComponent } from './inscripcion/inscripcion.component';
 import { SeleccionarClienteComponent } from './seleccionar-cliente/seleccionar-cliente.component';
 import { ListadoInscripcionesComponent } from './listado-inscripciones/listado-inscripciones.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ListadoInscripcionesComponent } from './listado-inscripciones/listado-i
     AngularFireStorageModule,
     BsDropdownModule.forRoot(),
     ProgressbarModule.forRoot(),
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     AngularFireAuth,
